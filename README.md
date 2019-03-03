@@ -1,2 +1,2 @@
 # GardenPhoto3D
-Workspace for garden layout software.
+Workspace for the garden layout software project.
