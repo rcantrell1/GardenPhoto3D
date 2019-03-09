@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GroundSquare : GenericCell {
 
+    public GameObject plant;
+
     // Use this for initialization
     void SpecificStart () {
         setMaterial();

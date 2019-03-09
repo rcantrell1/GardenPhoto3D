@@ -25,7 +25,7 @@ public class GenericCell : MonoBehaviour {
         Debug.Log("GC unhighlight");
         isHighlighted = false;
         setMaterial();
-	}
+    }
 	
 	public void highlight() {
         Debug.Log("GC highlight");
