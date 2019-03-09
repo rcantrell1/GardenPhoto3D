@@ -30,8 +30,14 @@ public class GenericCell : MonoBehaviour {
 	public void highlight() {
         Debug.Log("GC highlight");
         isHighlighted = true;
-        Debug.Log("ugh: "+box.transform.position.x+","+box.transform.position.y+","+box.transform.position.z);
         setMaterial();
+        Debug.Log("ugh: "+box.transform.position.x+","+box.transform.position.y+","+box.transform.position.z);
+
+        Spawner[] spawners = FindObjectsOfType<Spawner>();
+        foreach (Spawner spawner in spawners) {
+                spawner.selectedCell=this;
+                Debug.Log("component: "+spawner.ToString());
+        }       
     }
 
     void setMaterial()
