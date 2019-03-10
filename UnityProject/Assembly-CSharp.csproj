@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\FlowerSpawner.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\GenericBoard.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\Scripts\GroundSquare.cs" />
     <Compile Include="Assets\Scripts\Layout.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
+    <Compile Include="Assets\Scripts\TimeLine.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/rcantrel/git/GardenPhoto3D/UnityProject/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
