@@ -68,6 +68,8 @@
     <Compile Include="Assets\Scripts\GenericCell.cs" />
     <Compile Include="Assets\Scripts\GroundSquare.cs" />
     <Compile Include="Assets\Scripts\Layout.cs" />
+    <Compile Include="Assets\Scripts\Library.cs" />
+    <Compile Include="Assets\Scripts\LibraryPlant.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\TimeLine.cs" />
     <Reference Include="UnityEditor.StandardEvents">

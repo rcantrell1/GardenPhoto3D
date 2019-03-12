@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 765223893}
   - component: {fileID: 765223895}
   - component: {fileID: 765223896}
+  - component: {fileID: 765223897}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -705,8 +706,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9340e3cc026114761be878d61dcdab9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winter_normal: {fileID: 2100000, guid: 3318ab9a846cf4cd4b7ec1ad505a9419, type: 2}
+  winter_highlighted: {fileID: 2100000, guid: b394f9203b05846548cff530c557cf81, type: 2}
+  spring_normal: {fileID: 2100000, guid: 1eb0c1525460f404e85a289d472133f0, type: 2}
+  spring_highlighted: {fileID: 2100000, guid: 43027a0a34eb14b6dbcc63b02d2e1806, type: 2}
+  summer_normal: {fileID: 2100000, guid: 989b2f5bd3fcf4b229659621f8aa69e6, type: 2}
+  summer_highlighted: {fileID: 2100000, guid: edaa884fb14b84a21bae86ee9dabb814, type: 2}
+  fall_normal: {fileID: 2100000, guid: dd5bb27753910415f94f97b49d6dee3e, type: 2}
+  fall_highlighted: {fileID: 2100000, guid: 0412da7be9cf443ff9f58b51b6805016, type: 2}
   month: 3
   year: 1
+  monthDisplay: {fileID: 1349087738}
+  yearDisplay: {fileID: 1985386437}
+--- !u!114 &765223897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 765223892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f36088159b994a13ba73438e46e19f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &942574904
 Prefab:
   m_ObjectHideFlags: 0

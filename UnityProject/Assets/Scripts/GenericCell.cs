@@ -82,7 +82,7 @@ public class GenericCell : MonoBehaviour {
         SpecificStart();
 	}
 
-    void SpecificStart() {
+    protected virtual void SpecificStart() {
     }
 	
 	//for saving
