@@ -86,10 +86,19 @@ public class GenericCell : MonoBehaviour {
     }
 	
 	//for saving
-	public void setFromString(string valuesString) {
+	public virtual void setFromString(string valuesString) {
 	}
 	
-	public string writeToSetString() {
+	public virtual string writeToSetString() {
 		return "GC DEFAULT";
 	}
+
+    //for saving
+    public virtual void readFromFile(string filename)
+    {
+    }
+
+    public virtual void writeFile(string filename)
+    {
+    }
 }

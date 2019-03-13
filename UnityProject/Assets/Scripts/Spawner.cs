@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour {
             Vector3 newPos = Layout.translateToScreen(Input.mousePosition);
             newPos.y -= 140;
             Debug.Log("newpos: " + newPos.x + "," + newPos.y + "," + newPos.z);
-            GameObject newObject = (GameObject)Instantiate(toSpawn,
+            /*GameObject newObject = (GameObject)*/Instantiate(toSpawn,
                                                                newPos,
                                                                Quaternion.identity);
         } else {
@@ -62,23 +62,23 @@ public class Spawner : MonoBehaviour {
     void spawnInSelectedCell() {
         if (input != null && toSpawn != null && selectedCell != null)
         {
+            GroundSquare square = selectedCell as GroundSquare;
+
             Vector3 newPos = selectedCell.transform.position;
-            GameObject newObject = (GameObject)Instantiate(toSpawn,
+            if (square!=null) {
+                if (square.plant==null) {
+                    Debug.Log("set plant");
+                    GameObject newObject = (GameObject)Instantiate(toSpawn,
                                                                newPos,
                                                                Quaternion.identity);
-            GroundSquare square = selectedCell as GroundSquare;
-            if (square != null)
-            {
-                Debug.Log("set plant");
-                square.plant = newObject;
-            }
-            else
-            {
+                    square.plant = newObject;
+                } else {
+                    Debug.Log("Square already full.");
+                }
+            } else {
                 Debug.Log("Selected cell could not have plant assigned to it. Plant lost forever.");
             }
-        }
-        else
-        {
+        } else {
             Debug.Log("Could not spawn in selected cell.");
         }
     }

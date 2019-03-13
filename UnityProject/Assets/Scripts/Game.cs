@@ -65,7 +65,7 @@ public class Game : MonoBehaviour {
     {
         float mouseX = Input.mousePosition.x;
         float mouseY = Input.mousePosition.y;
-        float mouseZ = Input.mousePosition.z;
+        //float mouseZ = Input.mousePosition.z;
 
         Vector3 weirdTriplet = new Vector3(mouseX, mouseY, cameraDistance); //mouseZ); //
         //Vector3 weirdTriplet = new Vector3(mouseX, cameraDistance, mouseZ); //mouseZ); //

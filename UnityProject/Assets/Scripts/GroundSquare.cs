@@ -74,14 +74,14 @@ public class GroundSquare : GenericCell {
     }
 
     // Formatting
-    public void unhighlight()
+    public new void unhighlight()
     {
         Debug.Log("GC unhighlight");
         isHighlighted = false;
         setMaterial();
     }
 
-    public void highlight()
+    public new void highlight()
     {
         Debug.Log("GC highlight");
         isHighlighted = true;
@@ -106,6 +106,34 @@ public class GroundSquare : GenericCell {
             //Debug.Log("GS is not highlighted");
         }
     }
+
+	//for saving
+	public override void readFromFile(string filename) {
+		Debug.Log ("reading from file");
+		string[] lines = System.IO.File.ReadAllLines(@filename);
+		if (lines.Length==81) {
+			int thisLine=0;
+			for (int i=0; i<9; i++) {
+				for (int j=0; j<9; j++) {
+					//cells[i,j].setFromString(lines[thisLine]);
+					thisLine++;
+				}
+			}
+		}
+		Debug.Log ("end read from file");
+	}
+	
+	public override void writeFile(string filename) {
+		string [] lines=new string[81];
+		int thisLine=0;
+		for (int i=0; i<9; i++) {
+			for (int j=0; j<9; j++) {
+				//lines[thisLine]=cells[i,j].writeToSetString();
+				thisLine++;
+			}
+		}
+		System.IO.File.WriteAllLines(@filename, lines);
+	}
 
 
 }
