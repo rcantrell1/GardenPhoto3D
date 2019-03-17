@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
+abstract public class Spawner : MonoBehaviour {
     public enum MouseOrSelection { Mouse, Selection };
-
-    public string input;
-    public string input_destroy="x";
 
 	public GameObject toSpawn;
     public GenericCell selectedCell;
 
     public MouseOrSelection mouseOrSelection = MouseOrSelection.Mouse;
 
+    protected abstract bool timeToSpawn();
+
+    protected abstract bool timeToDestroy();
+
     void Update()
     {
-        if (Input.GetKeyDown(input)) {
+        if (timeToSpawn()) {
             if (mouseOrSelection==MouseOrSelection.Mouse) {
                 spawnUnderMouse();
             } else {
                 spawnInSelectedCell();
             }
         }
-        if (Input.GetKeyDown(input_destroy)) {
+        if (timeToDestroy()) {
             if (selectedCell!=null) {
                 GroundSquare square = selectedCell as GroundSquare;
                 if (square != null) {
@@ -41,15 +42,15 @@ public class Spawner : MonoBehaviour {
         }
     }
 
+    protected abstract bool okayToSpawnUnderMouse();
+
     void spawnUnderMouse() {
-        if (input != null && toSpawn != null)
+        if (okayToSpawnUnderMouse())
         {
             Vector3 newPos = Layout.translateToScreen(Input.mousePosition);
             newPos.y -= 140;
             Debug.Log("newpos: " + newPos.x + "," + newPos.y + "," + newPos.z);
-            /*GameObject newObject = (GameObject)*/Instantiate(toSpawn,
-                                                               newPos,
-                                                               Quaternion.identity);
+            GameObject newObject = spawnAtLocation(newPos);
         } else {
             Debug.Log("Could not spawn under mouse.");
         }
@@ -59,8 +60,10 @@ public class Spawner : MonoBehaviour {
         GameObject.Destroy(toDestroy);
     }
 
+    protected abstract bool okayToSpawnInSelectedCell();
+
     void spawnInSelectedCell() {
-        if (input != null && toSpawn != null && selectedCell != null)
+        if (okayToSpawnInSelectedCell())
         {
             GroundSquare square = selectedCell as GroundSquare;
 
@@ -68,9 +71,7 @@ public class Spawner : MonoBehaviour {
             if (square!=null) {
                 if (square.plant==null) {
                     Debug.Log("set plant");
-                    GameObject newObject = (GameObject)Instantiate(toSpawn,
-                                                               newPos,
-                                                               Quaternion.identity);
+                    GameObject newObject = spawnAtLocation(newPos);
                     square.plant = newObject;
                 } else {
                     Debug.Log("Square already full.");
@@ -82,5 +83,7 @@ public class Spawner : MonoBehaviour {
             Debug.Log("Could not spawn in selected cell.");
         }
     }
+
+    protected abstract GameObject spawnAtLocation(Vector3 location);
 
 }

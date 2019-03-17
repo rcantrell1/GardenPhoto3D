@@ -32,6 +32,13 @@ public class Library : MonoBehaviour {
             }
         }
     }
+
+    public LibraryPlant GetLibraryPlant(int i) {
+        if (plants!=null) {
+            return plants[i];
+        }
+        return null;
+    }
 	
     public LibraryPlant GetLibraryPlant(string name) { // e.g. Crocus_white
         if (plants!=null) {
@@ -42,5 +49,9 @@ public class Library : MonoBehaviour {
             }
         }
         return null;
+    }
+
+    public int countPlants() {
+        return plants.Count;
     }
 }

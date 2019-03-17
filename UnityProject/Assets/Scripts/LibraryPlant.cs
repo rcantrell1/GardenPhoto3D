@@ -4,11 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-public class LibraryPlant {
+public class LibraryPlant : MonoBehaviour {
 	string type;
 	string plantName;
     string imageLocation;
-	Texture2D texture;
+	public Texture2D texture;
+    public Material material;
+    public GameObject plantType;
+
+    public GameObject InstantiatePlant() {
+        GameObject plant=null;
+        if (plantType!=null) {
+            plant=(GameObject)Instantiate(plantType,Vector3.zero,Quaternion.identity);
+        }
+        return plant;
+    }
 
     public LibraryPlant(string type, string name, string imageFileLocation) {
         initialize(type,name,imageFileLocation);
@@ -23,6 +33,8 @@ public class LibraryPlant {
 			byte[] fileData=File.ReadAllBytes(imageFileLocation);
 			texture=new Texture2D(2,2);
 			texture.LoadImage(fileData);
+            //material=new Material();
+            //material.SetTexture(texture);
 		}
 	}
 
