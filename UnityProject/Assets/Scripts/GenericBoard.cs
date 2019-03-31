@@ -8,7 +8,6 @@ public class GenericBoard : MonoBehaviour {
 	
 	public GameObject cellType;
 	
-	public Canvas canvas;
 	public Layout layout;
 	
 	[SerializeField] public int highlighted=0;
@@ -43,7 +42,7 @@ public class GenericBoard : MonoBehaviour {
 				GameObject thisCell = Instantiate(cellType, new Vector3(x, 0, y/*y, 0*/), Quaternion.identity) as GameObject;
 				//thisCell.setLocation(i,j); /* to generify */
 				//Debug.Log (thisCell.transform.position);
-				thisCell.transform.SetParent(canvas.transform); //,false);
+				thisCell.transform.SetParent(layout.transform); //,false);
 				//thisCell.board=this; /* to generify */
 				/*SpriteRenderer sr = thisCell.GetComponent<SpriteRenderer>();
 				if (sr!=null) {

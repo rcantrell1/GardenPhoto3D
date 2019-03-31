@@ -86,7 +86,7 @@ public class GroundSquare : GenericCell {
         Debug.Log("GC highlight");
         isHighlighted = true;
         setMaterial();
-        Debug.Log("ugh: " + box.transform.position.x + "," + box.transform.position.y + "," + box.transform.position.z);
+        //Debug.Log("ugh: " + box.transform.position.x + "," + box.transform.position.y + "," + box.transform.position.z);
 
         Spawner[] spawners = FindObjectsOfType<Spawner>();
         foreach (Spawner spawner in spawners)
